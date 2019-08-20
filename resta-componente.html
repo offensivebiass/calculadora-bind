@@ -1,0 +1,44 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="resta-componente">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <!-- <p>La resta de los valores es: [[resta]]</p> -->
+    </template>
+
+    <script>
+        /**
+         * `resta-componente`
+         * 
+         *
+         * @customElement
+         * @polymer
+         * @demo demo/index.html
+         */
+        class RestaComponente extends Polymer.Element {
+            static get is() {
+                return 'resta-componente';
+            }
+            static get properties() {
+                return {
+                    resta: {
+                        type: Number,
+                        computed: '_getResta(numero1, numero2)',
+                        notify: true
+                    },
+                };
+            }
+
+            _getResta(numero1, numero2) {
+                return numero1 - numero2
+            }
+
+        }
+
+        window.customElements.define(RestaComponente.is, RestaComponente);
+    </script>
+</dom-module>

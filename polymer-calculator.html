@@ -1,0 +1,57 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="./suma-componente.html">
+<link rel="import" href="./resta-componente.html">
+<link rel="import" href="./multiplicacion-componente.html">
+<link rel="import" href="./division-componente.html">
+
+<dom-module id="polymer-calculator">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <div>Valor 1: [[numero1]]</div>
+    <div>Valor 2: [[numero2]]</div>
+    <p>Resultado de suma: [[suma]]</p>
+    <suma-componente numero1="{{numero1}}" numero2="{{numero2}}" suma="{{suma}}"></suma-componente>
+    <p>Resultado de resta: [[resta]]</p>
+    <resta-componente numero1="{{numero1}}" numero2="{{numero2}}" resta="{{resta}}"></resta-componente>
+    <p>Resultado de multiplicacion: [[multiplicacion]]</p>
+    <multiplicacion-componente numero1="{{numero1}}" numero2="{{numero2}}" multiplicacion="{{multiplicacion}}"></multiplicacion-componente>
+    <p>Resultado de division: [[division]]</p>
+    <division-componente numero1="{{numero1}}" numero2="{{numero2}}" division="{{division}}"></division-componente>
+    
+  </template>
+
+  <script>
+    /**
+     * `polymer-calculator`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class PolymerCalculator extends Polymer.Element {
+      static get is() { return 'polymer-calculator'; }
+      static get properties() {
+        return {
+          numero1: {
+            type: Number,
+            value: 10,
+            reflectToAttribute: true
+          },
+          numero2: {
+            type: Number,
+            value: 5,
+            reflectToAttribute: true
+          },
+        };
+      }
+
+    }
+
+    window.customElements.define(PolymerCalculator.is, PolymerCalculator);
+  </script>
+</dom-module>
